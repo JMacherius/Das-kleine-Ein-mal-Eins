@@ -21,7 +21,15 @@
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Ergebnis = Faktor1 * Faktor2
-        Eingabe = TextBox1.Text
+
+        Try
+            Label7.Text = ""
+            Eingabe = Convert.ToInt32(TextBox1.Text)
+        Catch ex As FormatException
+            ' MsgBox("Falsche / unvollständige Eingabe!")
+            Label7.Text = "Bitte Zahl eingeben!"
+        End Try
+
 
         If Eingabe = Ergebnis Then
             Label6.Text = "RICHTIG"
